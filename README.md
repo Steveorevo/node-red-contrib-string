@@ -3,8 +3,16 @@ Provides a node with native and extended chainable JavaScript string parsing
 and manipulation methods. The node is a high level wrapper for the concise and
 lightweight [stringjs.com](http://stringjs.com) object and uses Node-RED's editor UI to create easy
 chaining. Additional string parsing functionality and compatibility have been
-added from [fork](https://github.com/Steveorevo/string.js).
+added from the [fork](https://github.com/Steveorevo/string.js).
 
+Applies string methods from a given context property and assigns the results
+optionally to the same or another context property. Methods can be chained by
+adding multiple methods sequentially and with parameters that are literal or
+from other context properties. The string object always passes along the msg
+object with (if any) changes applied.
+
+By default, string "from" and "to" apply to the `msg.payload` property but may
+be set to any property of `global`, `flow`, or `msg` contexts.
 
 ## Examples
 
