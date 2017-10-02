@@ -28,7 +28,7 @@ displays the output in the Node-RED debug window.
 The extraction is performed using JavaScript's unique ability to chain actions on
 a given object such as the native String object or the popular jQuery component.
 This unique contribution to Node-RED furnishes a lightweight and enhanced version
-of string parsing functions. The visual representation in the first image code be
+of string parsing functions. The visual representation in the first image could be
 coded by hand in JavaScript (after including all the dependencies) as:
 ```
 console.log(
