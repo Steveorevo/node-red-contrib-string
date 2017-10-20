@@ -67,10 +67,14 @@
   <dd>Returns a converted camel cased string into a string delimited by dashes. I.e. 'dataRate' becomes 'data-rate'.</dd>
   <dt>decodeHTMLEntities()</dt>
   <dd>Decodes HTML entities into their string representation. I.e. 'Ken Thompson &amp;amp; Dennis Ritchie' becomes 'Ken Thompson &amp; Dennis Ritchie'.</dd>
+  <dt>decodeURIComponent()</dt>
+  <dd>Decodes a URI component. I.e. 'http%3A%2F' becomes 'http://'.</dd>
   <dt>delLeftMost(<i>find</i>)</dt>
   <dd>Returns the remaining string after removing the first occurrence of <i>find</i> and everything to the left of <i>find</i> when scanning from <b>left to right</b>. If <i>find</i> is not found, the unmodified string is returned. I.e. '\Parent\child\folders' <code>delLeftMost</code> <i>'\child'</i> leaves '\folders'.</dd>
   <dt>delRightMost(<i>find</i>)</dt>
   <dd>Returns the remaining string after removing the first occurrence of <i>find</i> and everything to the right of <i>find</i> when scanning from <b>right to left</b>. If <i>find</i> is not found, the unmodified string is returned. I.e. '\Parent\child\folders' <code>delRightMost</code> <i>'\child'</i> leaves '\Parent'.</dd>
+  <dt>encodeURIComponent()</dt>
+  <dd>Encodes a URI component. I.e. 'http://' becomes 'http%3A%2F'.</dd>
   <dt>endsWith(<i>chars</i>)</dt>
   <dd>Returns true if the string ends with <i>chars</i>. I.e. 'hello jon' <code>endsWith</code> 'jon' is true.</dd>
   <dt>escapeHTML()</dt>
@@ -276,6 +280,10 @@
             			name: "decodeHTMLEntities",
             			params: []
             		},
+                {
+            			name: "decodeURIComponent",
+            			params: []
+            		},
             		{
             			name: "delLeftMost",
                   params: [{
@@ -291,6 +299,10 @@
             				types:['msg','flow','global','str'],
                     placeholder:'find'
             			}]
+            		},
+                {
+            			name: "encodeURIComponent",
+            			params: []
             		},
             		{
             			name: "endsWith",
