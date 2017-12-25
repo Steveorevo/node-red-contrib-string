@@ -64,6 +64,70 @@ original number as found in property msg.payload or the informative error messag
 
 ![Verify Number Node](/string/demo/validate-node-properties.png?raw=true "Verify Number properties")
 
+#### Using String in Node-RED Function Nodes
+You can use the string object's methods inside Node-RED's function nodes. The
+dependency string.js for Node.js will have been already installed if you included
+the string node in your palette. This would allow you to use the parsing methods
+in JavaScript by such as:
+
+```
+  // Always change the last word to World
+  var greet = S("Hello Mars");
+  msg.payload = greet.delRightMost(" ").append("World");
+```
+
+There are several easy ways to include string's methods in your JavaScript
+function nodes:
+
+##### Include String Node in Flow
+A simple way is to just include the string node in your flow before the Node-RED
+function node. The string node will normally return a native JavaScript string
+datatype; however, if you use the setValue method with no value, a string.js
+object can be casted into a readily available property. In our example below we
+cast the object into `msg.string`.
+
+![Using String in JavaScript](/string/demo/include-in-function.png?raw=true "Using String in JavaScript")
+
+The string object returns an instance of itself when using the setValue method.
+You can then write JavaScript to instantiate a copy of the string object.
+
+```
+var S = function(x) {
+  return msg.string.setValue(x);
+}
+msg.payload = S("Hello World");
+```
+
+##### Enable Require in Node-RED
+An alternative method to use the string object is to enable the require method
+by updating Node-RED's settings.js to enable Node.js' "require" ability.
+
+https://github.com/node-red/node-red/issues/41#issuecomment-325554335
+
+```
+functionGlobalContext: {
+    require:require,
+    // os:require('os'),
+    // octalbonescript:require('octalbonescript'),
+    // jfive:require("johnny-five"),
+    // j5board:require("johnny-five").Board({repl:false})
+},
+```
+This will essentially give Node-RED's function node the ability to include any
+arbitrary Node.js library which you may or may not desire. Likewise, you could
+just update Node-RED's settings.js to just enable the string.js library by
+modifying the functionGlobalContext to read:
+```
+functionGlobalContext: {
+    string:require("string")
+},
+```
+
+Your Node-RED's function node could then instantiate a string object like so:
+```
+var S = global.get("string");
+msg.payload = S("Hello World");
+```
 
 ## Installation
 Run the following command in your Node-RED user directory (typically ~/.node-red):
