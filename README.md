@@ -64,11 +64,11 @@ original number as found in property msg.payload or the informative error messag
 
 ![Verify Number Node](/string/demo/validate-node-properties.png?raw=true "Verify Number properties")
 
-#### Using String in Node-RED Function Nodes
+### Using String in Node-RED Function Nodes
 You can use the string object's methods inside Node-RED's function nodes. The
-dependency string.js for Node.js will have been already installed if you included
+dependency string.js for Node.js will have already been installed if you included
 the string node in your palette. This would allow you to use the parsing methods
-in JavaScript by such as:
+in JavaScript such as:
 
 ```
   // Always change the last word to World
@@ -76,10 +76,10 @@ in JavaScript by such as:
   msg.payload = greet.delRightMost(" ").append("World");
 ```
 
-There are several easy ways to include string's methods in your JavaScript
-function nodes:
+There are several easy ways to make the string object's methods available in your
+JavaScript function nodes:
 
-##### Include String Node in Flow
+#### Include String Node in Flow
 A simple way is to just include the string node in your flow before the Node-RED
 function node. The string node will normally return a native JavaScript string
 datatype; however, if you use the setValue method with no value, a string.js
@@ -98,7 +98,7 @@ var S = function(x) {
 msg.payload = S("Hello World");
 ```
 
-##### Enable Require in Node-RED
+#### Enable Require in Node-RED
 An alternative method to use the string object is to enable the require method
 by updating Node-RED's settings.js to enable Node.js' "require" ability.
 
