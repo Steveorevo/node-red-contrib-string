@@ -55,12 +55,6 @@ module.exports = function(RED) {
             if (config.methods) {
               config.methods.forEach(function(m, i) {
                 switch(m.name) {
-                  case 'append':
-                    value = S(value.s + getTypeInputValue(m.params[0].type, m.params[0].value));
-                    break;
-                  case 'prepend':
-                    value = S(getTypeInputValue(m.params[0].type, m.params[0].value) + value.s);
-                    break;
                   case 'toString':
                     value = S(value.toString());
                     break;
