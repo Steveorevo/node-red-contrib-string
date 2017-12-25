@@ -86,7 +86,7 @@ datatype; however, if you use the setValue method with no value, a string.js
 object can be casted into a readily available property. In our example below we
 cast the object into `msg.string`.
 
-![Using String in JavaScript](/string/demo/include-in-function.png?raw=true "Using String in JavaScript")
+![Using String in JavaScript](/string/demo/use-in-function.png?raw=true "Using String in JavaScript")
 
 The string object returns an instance of itself when using the setValue method.
 You can then write JavaScript to instantiate a copy of the string object.
