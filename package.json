@@ -17,7 +17,7 @@
     "url": "https://github.com/Steveorevo/node-red-contrib-string.git"
   },
   "dependencies": {
-    "string": "git://github.com/Steveorevo/string.js.git"
+    "string": "https://github.com/Steveorevo/string.js/archive/3.3.6.tar.gz"
   },
   "node-red": {
     "nodes": {
