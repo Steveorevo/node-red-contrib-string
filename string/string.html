@@ -143,6 +143,8 @@
   <dd>Strip all of the HTML with the specified <i>tag</i> or all tags when <i>tag</i> is empty. I.e. '&lt;p&gt;just &lt;b&gt;some&lt;/b&gt; text&lt;/p&gt;' <code>stripTags</code> becomes 'just some text'.</dd>
   <dt>template(<i>values</i>, <i>open</i>, <i>close</i>)</dt>
   <dd>Takes the string and interpolates the <i>values</i>. Defaults <i>open</i> to <i>{{</i> and <i>close</i> to <i>}}</i> if <i>open</i> and <i>close</i> are left empty for Mustache compatible templates. However, you can change this default by supplying <i>open</i> and <i>close</i>. I.e. 'Hello {{planet}}!!!' <code>template</code> <i>{"planet":"Earth"}</i> becomes 'Hello Earth!!!'.</dd>
+  <dt>titleCase()</dt>
+  <dd>Changes the string with the first letter of each word uppercased, including hyphenated words. I.e. 'hello world' <code>titleCase</code> becomes 'Hello World'.</dd>
   <dt>toBoolean()</dt>
   <dd>Converts a logical truth string to a boolean. A string containing 'true', 'on', 'yes', or '1' will become a boolean true, otherwise false.</dd>
   <dt>toCSV(<i>JSON</i>)</dt>
@@ -151,8 +153,12 @@
   <dd>Parses the string and returns a floating point number with the specified <i>precision</i>. I.e. '3.45522' <code>toFloat</code> <i>2</i> becomes 3.45.</dd>
   <dt>toInteger()</dt>
   <dd>Parses a string argument and returns an integer. I.e. '5.3' <code>toInteger</code> becomes 5.</dd>
+  <dt>toLowerCase()</dt>
+  <dd>Changes the case of the entire string to lowercase. I.e. 'Hello world' <code>toLowerCase</code> becomes 'hello world'.</dd>
   <dt>toString()</dt>
   <dd>Converts the current value to a string. I.e. 123 <code>toString</code> becomes '123'.</dd>
+  <dt>toUpperCase()</dt>
+  <dd>Changes the case of the entire string to uppercase. I.e. 'Hello world' <code>toUpperCase</code> becomes 'HELLO WORLD'.</dd>
   <dt>trim()</dt>
   <dd>Remove the leading and trailing whitespace from the string. I.e. ' hello ' <code>trim</code> becomes 'hello'.</dd>
   <dt>trimLeft()</dt>
@@ -601,6 +607,14 @@
                     types:['msg','flow','global','str'],
                     placeholder:'close, leave blank for }}'
                   }]
+                },
+                {
+                  name:'titleCase',
+                  params: []
+                },
+            		{
+            			name: "toBoolean",
+            			params: []
             		},
                 {
                   name: "toCSV",
@@ -610,10 +624,6 @@
                     placeholder:'{"delimiter":",", "qualifier": "\"", "escape":"\\", "enclosedNumbers":true, "keys":false}'
                   }]
                 },
-            		{
-            			name: "toBoolean",
-            			params: []
-            		},
             		{
             			name: "toFloat",
             			params: [{
@@ -625,9 +635,17 @@
             		{
             			name: "toInteger",
             			params: []
-            		},
+                },
+                {
+                  name: "toLowerCase",
+                  params: []
+                },
                 {
                   name: "toString",
+                  params: []
+                },
+                {
+                  name: "toUpperCase",
                   params: []
                 },
             		{
