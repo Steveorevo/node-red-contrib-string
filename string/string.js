@@ -64,6 +64,9 @@ module.exports = function(RED) {
                   case 'encodeURIComponent':
                     value = S(encodeURIComponent(value.toString()));
                     break;
+                  case 'length':
+                    value = value.toString().length;
+                    break;
                   default:
                     var args = [];
                     m.params.forEach(function(p, i) {
